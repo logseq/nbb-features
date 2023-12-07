@@ -11,7 +11,8 @@
    :git/tag "v1.2.173"}
   #_{:local/root "../nbb"}
   datascript/deps {:local/root "features/datascript"}
-  datascript-transit/deps {:local/root "features/datascript-transit"}
+  ;; TODO: Fix transitive dep issue with persistent-sorted-set
+  ;; datascript-transit/deps {:local/root "features/datascript-transit"}
   linked/deps {:local/root "features/linked"}}
  :tasks
  {:requires ([babashka.fs :as fs]

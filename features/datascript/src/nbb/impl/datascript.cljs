@@ -2,11 +2,13 @@
   {:no-doc true}
   (:require [datascript.core :as d]
             [datascript.db :as db]
+            [datascript.storage :as storage]
             [nbb.core :as nbb]
             [sci.core :as sci :refer [copy-var]]))
 
 (def core-ns (sci/create-ns 'datascript.core nil))
 (def db-ns   (sci/create-ns 'datascript.db nil))
+(def storage-ns   (sci/create-ns 'datascript.storage nil))
 
 (def core-namespace
   {'q (copy-var d/q core-ns)
@@ -31,6 +33,8 @@
    'transact! (copy-var d/transact! core-ns)
    'create-conn (copy-var d/create-conn core-ns)
    'reset-conn! (copy-var d/reset-conn! core-ns)
+   'restore-conn (copy-var d/restore-conn core-ns)
+   'settings (copy-var d/settings core-ns)
    'from-serializable (copy-var d/from-serializable core-ns)
    'serializable (copy-var d/serializable core-ns)})
 
@@ -43,8 +47,13 @@
    'DB                (copy-var db/DB db-ns)
    'Datom             (copy-var db/Datom db-ns)})
 
+#_(def storage-namespace
+  {'IStorage          (copy-var storage/IStorage storage-ns)})
+(def storage-namespace (sci/copy-ns datascript.storage storage-ns))
+
 (defn init []
   (nbb/register-plugin!
    ::datascript
    {:namespaces {'datascript.core core-namespace
-                 'datascript.db   db-namespace}}))
+                 'datascript.db   db-namespace
+                 'datascript.storage storage-namespace}}))

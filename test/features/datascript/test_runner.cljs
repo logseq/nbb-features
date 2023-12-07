@@ -18,7 +18,8 @@
             [datascript.test.query-find-specs]
             [datascript.test.components]
             [datascript.test.serialize]
-            [datascript.test.transact]))
+            [datascript.test.transact]
+            #_[datascript.test.storage]))
 
 (defmethod t/report [::t/default :end-run-tests] [{:keys [error fail]}]
   (if (pos? (+ error fail))
@@ -43,7 +44,8 @@
                'datascript.test.query-return-map
                'datascript.test.query-not
                'datascript.test.query-aggregates
-               'datascript.test.query-or))
+               'datascript.test.query-or
+               #_'datascript.test.storage))
 
 (when (= nbb/*file* (:file (meta #'init)))
   (init))
