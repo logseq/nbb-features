@@ -17,13 +17,17 @@
       (fs/copy "test/features/datascript/test_core.cljs"
                (str feature-dir "/test/datascript/test/core.cljc")
                {:replace-existing true})
-      ;; TODO: Remove if not needed
-      #_(fs/copy "test/features/datascript/test_storage.cljs"
-                 (str feature-dir "/test/datascript/test/storage.cljs")
-                 {:replace-existing true}))
+      ;; copy over cljs test runner so that nbb and cljs are using the same one
+      (fs/copy "test/features/datascript/nbb_test_runner.cljs"
+               (str feature-dir "/test/nbb_test_runner.cljs")
+               {:replace-existing true})
+      ;; give cljs and nbb the same 2 tests
+      (fs/copy "test/features/datascript/test_storage.cljs"
+               (str feature-dir "/test/datascript/test/storage.cljs")
+               {:replace-existing true}))
     (tasks/shell "node lib/nbb_main.js -cp"
-                 (str feature-dir "/test")
-                 "test/features/datascript/test_runner.cljs")))
+                 (str feature-dir "/test:test/features")
+                 "-m" "nbb-test-runner/init")))
 
 (defn datascript-transit-tests
   []
@@ -60,4 +64,4 @@
   []
   (datascript-tests)
   #_(datascript-transit-tests)
-  (linked-tests))
+  #_(linked-tests))

@@ -1,6 +1,6 @@
-(ns datascript.test-runner
+(ns nbb-test-runner
   (:require [cljs.test :as t]
-            [nbb.core :as nbb]
+            ;; [nbb.core :as nbb]
             [datascript.test.storage]))
 
 (defmethod t/report [::t/default :end-run-tests] [{:keys [error fail]}]
@@ -11,5 +11,5 @@
 (defn init []
   (t/run-tests 'datascript.test.storage))
 
-(when (= nbb/*file* (:file (meta #'init)))
-  (init))
+;; (when (= nbb/*file* (:file (meta #'init)))
+;;   (init))
