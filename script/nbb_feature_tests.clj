@@ -59,5 +59,5 @@
   "Runs feature tests"
   []
   (datascript-tests)
-  #_(datascript-transit-tests)
+  (datascript-transit-tests)
   (linked-tests))

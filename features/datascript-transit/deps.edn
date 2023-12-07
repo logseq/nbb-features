@@ -1,2 +1,4 @@
 {:deps
- {datascript-transit/datascript-transit {:mvn/version "0.3.0"}}}
+ {datascript-transit/datascript-transit
+  {:mvn/version "0.3.0"
+   :exclusions [datascript/datascript persistent-sorted-set/persistent-sorted-set]}}}

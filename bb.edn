@@ -9,10 +9,11 @@
   {:git/url "https://github.com/babashka/nbb"
    :git/sha "35e4e94966d0ae45bb87569940b7c1fb05c19467"
    :git/tag "v1.2.173"}
+  org.babashka/sci
+  {:mvn/version "0.8.41"}
   #_{:local/root "../nbb"}
   datascript/deps {:local/root "features/datascript"}
-  ;; TODO: Fix transitive dep issue with persistent-sorted-set
-  ;; datascript-transit/deps {:local/root "features/datascript-transit"}
+  datascript-transit/deps {:local/root "features/datascript-transit"}
   linked/deps {:local/root "features/linked"}}
  :tasks
  {:requires ([babashka.fs :as fs]
