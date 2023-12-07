@@ -13,14 +13,10 @@
   (println "Running datascript tests...")
   (let [feature-dir "test/libraries/datascript"]
     (when-not (fs/exists? feature-dir)
-      (git-clone "-b logseq/test-storage https://github.com/logseq/datascript" feature-dir)
+      (git-clone "-b master https://github.com/logseq/datascript" feature-dir)
       (fs/copy "test/features/datascript/test_core.cljs"
                (str feature-dir "/test/datascript/test/core.cljc")
-               {:replace-existing true})
-      ;; TODO: Remove if not needed
-      #_(fs/copy "test/features/datascript/test_storage.cljs"
-                 (str feature-dir "/test/datascript/test/storage.cljs")
-                 {:replace-existing true}))
+               {:replace-existing true}))
     (tasks/shell "node lib/nbb_main.js -cp"
                  (str feature-dir "/test")
                  "test/features/datascript/test_runner.cljs")))
