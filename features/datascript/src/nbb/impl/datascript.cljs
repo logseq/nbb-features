@@ -57,7 +57,7 @@
 
 (defmethod -store :sci.impl.protocols/reified [store addr+data-seq]
   (let [methods (types/getMethods store)]
-    ((get methods -store) store addr+data-seq)))
+    ((get methods '-store) store addr+data-seq)))
 
 (def old-store storage/-store)
 
@@ -69,7 +69,7 @@
 
 (defmethod -restore :sci.impl.protocols/reified [store addr]
   (let [methods (types/getMethods store)]
-    ((get methods -restore) store addr)))
+    ((get methods '-restore) store addr)))
 
 (def old-restore storage/-restore)
 
