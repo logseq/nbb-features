@@ -46,6 +46,7 @@
    'datom-from-reader (copy-var db/datom-from-reader db-ns)
    'datom-added       (copy-var db/datom-added db-ns)
    'datom-tx          (copy-var db/datom-tx db-ns)
+   'entid             (copy-var db/entid db-ns)
    'datom             (copy-var db/datom db-ns)
    'DB                (copy-var db/DB db-ns)
    'Datom             (copy-var db/Datom db-ns)})
