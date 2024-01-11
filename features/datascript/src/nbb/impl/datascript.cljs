@@ -3,6 +3,7 @@
   (:require [datascript.core :as d]
             [datascript.db :as db]
             [datascript.storage :as storage]
+            [datascript.impl.entity :as de]
             [nbb.core :as nbb]
             [sci.impl.types :as types]
             [sci.core :as sci :refer [copy-var]]))
@@ -10,6 +11,7 @@
 (def core-ns (sci/create-ns 'datascript.core nil))
 (def db-ns   (sci/create-ns 'datascript.db nil))
 (def storage-ns   (sci/create-ns 'datascript.storage nil))
+(def entity-ns   (sci/create-ns 'datascript.impl.entity nil))
 
 (def core-namespace
   {'q (copy-var d/q core-ns)
@@ -46,10 +48,14 @@
    'datom-from-reader (copy-var db/datom-from-reader db-ns)
    'datom-added       (copy-var db/datom-added db-ns)
    'datom-tx          (copy-var db/datom-tx db-ns)
-   'entid             (copy-var db/entid db-ns)
    'datom             (copy-var db/datom db-ns)
    'DB                (copy-var db/DB db-ns)
    'Datom             (copy-var db/Datom db-ns)})
+
+(def entity-namespace
+  {'lookup-entity (copy-var de/lookup-entity entity-ns)
+   'Entity (copy-var de/Entity entity-ns)
+   'entity? (copy-var de/entity? entity-ns)})
 
 ;;;; IDeref
 
@@ -98,7 +104,8 @@
 
 (def namespaces {'datascript.core core-namespace
                  'datascript.db   db-namespace
-                 'datascript.storage storage-namespace})
+                 'datascript.storage storage-namespace
+                 'datascript.impl.entity entity-namespace})
 
 (def config {:namespaces namespaces})
 
