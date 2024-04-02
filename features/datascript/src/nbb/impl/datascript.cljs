@@ -41,7 +41,8 @@
    'restore-conn (copy-var d/restore-conn core-ns)
    'settings (copy-var d/settings core-ns)
    'from-serializable (copy-var d/from-serializable core-ns)
-   'serializable (copy-var d/serializable core-ns)})
+   'serializable (copy-var d/serializable core-ns)
+   'reset-schema! (copy-var d/reset-schema! core-ns)})
 
 (def db-namespace
   {'db-from-reader    (copy-var db/db-from-reader db-ns)
