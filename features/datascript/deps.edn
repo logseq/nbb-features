@@ -1,4 +1,4 @@
 {:deps
  {logseq/datascript
   {:git/url "https://github.com/logseq/datascript"
-   :git/sha "0a3ce97e0f3d6afffc395e5a901312d208ce68e2"}}}
+   :git/sha "18a9b14a6f448ac25cf200952eda5c656e243f58"}}}
