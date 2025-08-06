@@ -1,5 +1,5 @@
 [{:name logseq/datascript
-  :namespaces [datascript.core datascript.db]
+  :namespaces [datascript.core datascript.db datascript.impl.entity datascript.storage]
   :js "./nbb_datascript.js"
   :shadow-config
   {:compiler-options {:externs ["datascript/externs.js"]}
