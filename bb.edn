@@ -2,15 +2,14 @@
  :deps
  {nbb.build/nbb.build
   {:git/url "https://github.com/babashka/nbb"
-   :git/sha "35e4e94966d0ae45bb87569940b7c1fb05c19467"
+   :git/sha "62e749cdbd6706ccdbaeaf6017e4bfed5fc54704"
    :deps/root "build"}
   #_{:local/root "../nbb/build"}
   nbb/nbb
-  {:git/url "https://github.com/babashka/nbb"
-   :git/sha "35e4e94966d0ae45bb87569940b7c1fb05c19467"
-   :git/tag "v1.2.173"}
-  org.babashka/sci
-  {:mvn/version "0.8.41"}
+  ;; Use fork temporarily until sci build error is fixed upstream
+  {:git/url "https://github.com/logseq/nbb"
+   :git/sha "2486d72cbddb70d4c4047be9c063122fd78f6835"
+   :exclusions [org.babashka/sci]}
   #_{:local/root "../nbb"}
   datascript/deps {:local/root "features/datascript"}
   datascript-transit/deps {:local/root "features/datascript-transit"}
