@@ -1,6 +1,7 @@
 (ns nbb.impl.datascript
   {:no-doc true}
   (:require [datascript.core :as d]
+            [datascript.conn :as dc]
             [datascript.db :as db]
             [datascript.storage :as storage]
             [datascript.impl.entity :as de]
@@ -12,6 +13,7 @@
 (def db-ns   (sci/create-ns 'datascript.db nil))
 (def storage-ns   (sci/create-ns 'datascript.storage nil))
 (def entity-ns   (sci/create-ns 'datascript.impl.entity nil))
+(def conn-ns (sci/create-ns 'datascript.conn nil))
 
 (def core-namespace
   {'q (copy-var d/q core-ns)
@@ -59,6 +61,10 @@
   {'lookup-entity (copy-var de/lookup-entity entity-ns)
    'Entity (copy-var de/Entity entity-ns)
    'entity? (copy-var de/entity? entity-ns)})
+
+(def conn-namespace
+  {'store-after-transact! (copy-var dc/store-after-transact! conn-ns)
+   'run-callbacks (copy-var dc/run-callbacks conn-ns)})
 
 ;;;; IDeref
 
@@ -108,7 +114,8 @@
 (def namespaces {'datascript.core core-namespace
                  'datascript.db   db-namespace
                  'datascript.storage storage-namespace
-                 'datascript.impl.entity entity-namespace})
+                 'datascript.impl.entity entity-namespace
+                 'datascript.conn conn-namespace})
 
 (def config {:namespaces namespaces})
 
