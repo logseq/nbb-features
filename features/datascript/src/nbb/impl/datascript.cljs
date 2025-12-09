@@ -33,6 +33,7 @@
    'touch (copy-var d/touch core-ns)
    'index-range (copy-var d/index-range core-ns)
    'listen! (copy-var d/listen! core-ns)
+   'unlisten! (copy-var d/unlisten! core-ns)
    'conn-from-db (copy-var d/conn-from-db core-ns)
    'conn-from-datoms (copy-var d/conn-from-datoms core-ns)
    'transact! (copy-var d/transact! core-ns)
