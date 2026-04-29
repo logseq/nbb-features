@@ -1,6 +1,6 @@
 # nbb-features
 
-A collection of premade features for [nbb](https://github.com/babashka/nbb)
+A collection of premade features for [nbb-logseq](https://github.com/babashka/nbb). This is a fork because Logseq has its [own fork of datascript](https://github.com/logseq/datascript) it relies on.
 
 ## Intro
 
